@@ -71,7 +71,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           name: `twitter:image`,
-          content: Vampy,
+          content: `https://isvampycore.com${Vampy}`,
         },
       ]
         .concat(
