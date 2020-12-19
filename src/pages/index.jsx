@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO />
-        <h1>YES, NOW IN TWO ELEMENTS!!!</h1>
+        <h1>YES, SPEND YOUR ROLLS</h1>
         <div id="vampy-container">
           <img src={images[this.state.random]} alt="it's vampy!" />
         </div>
