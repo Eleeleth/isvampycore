@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -9,32 +9,22 @@ import VampyGayOnion from '../images/vampygayonion.png';
 
 const images = [Vampy, VampyGif, VampyGayOnion];
 
-class IndexPage extends React.Component {
-  constructor(props) {
-    super(props);
+function IndexPage() {
+  const [random, setRandom] = useState(0);
 
-    this.state = { random: 0 };
-  }
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * 3));
+  }, []);
 
-  componentDidMount() {
-    this.setState(() => ({
-      random: Math.floor(Math.random() * 3),
-    }));
-
-    this.forceUpdate();
-  }
-
-  render() {
-    return (
-      <Layout>
-        <SEO />
-        <h1>YES, SPEND YOUR ROLLS</h1>
-        <div id="vampy-container">
-          <img src={images[this.state.random]} alt="it's vampy!" />
-        </div>
-      </Layout>
-    );
-  }
+  return (
+    <Layout>
+      <SEO />
+      <h1>YES</h1>
+      <div id="vampy-container">
+        <img src={typeof window === 'undefined' ? null : images[random]} alt="it's vampy!" />
+      </div>
+    </Layout>
+  );
 }
 
 export default IndexPage;
