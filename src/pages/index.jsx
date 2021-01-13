@@ -10,7 +10,7 @@ import VampyGayOnion from '../images/vampygayonion.png';
 const images = [Vampy, VampyGif, VampyGayOnion];
 
 function IndexPage() {
-  const [random, setRandom] = useState(0);
+  const [random, setRandom] = useState(null);
 
   useEffect(() => {
     setRandom(Math.floor(Math.random() * 3));
@@ -21,7 +21,10 @@ function IndexPage() {
       <SEO />
       <h1>YES</h1>
       <div id="vampy-container">
-        <img src={typeof window === 'undefined' ? null : images[random]} alt="it's vampy!" />
+        <img
+          src={typeof window === 'undefined' ? null : images[random]}
+          alt="it's vampy!"
+        />
       </div>
     </Layout>
   );
